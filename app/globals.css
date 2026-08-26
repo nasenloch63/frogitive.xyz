@@ -99,11 +99,11 @@ h1 span { display: block; margin-top: .28em; color: var(--primary); font-family:
 .corner-b { right: 31px; bottom: 31px; border-right: 2px solid; border-bottom: 2px solid; }
 
 .countdown-section { padding-block: 54px; border-bottom: 1px solid color-mix(in srgb, var(--primary) 18%, transparent); background: color-mix(in srgb, var(--primary) 3%, var(--background)); }
-.countdown-shell { display: grid; grid-template-columns: minmax(0, .8fr) minmax(520px, 1.2fr); align-items: end; gap: clamp(32px, 4vw, 52px); }
-.countdown-heading { min-width: 0; }
+.countdown-shell { display: flex; width: 100%; max-width: 72rem; flex-direction: column; align-items: center; gap: 28px; text-align: center; }
+.countdown-heading { min-width: 0; width: 100%; }
 .countdown-heading h2 { font-size: clamp(30px, 4vw, 52px); overflow-wrap: anywhere; }
 .countdown-heading > p:last-child { margin: 12px 0 0; color: var(--muted-foreground); font-family: var(--font-space-mono), monospace; font-size: 10px; line-height: 1.5; text-transform: uppercase; }
-.countdown-grid { width: min(100%, 600px); display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.countdown-grid { display: grid; width: 100%; max-width: 48rem; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
 .countdown-unit { min-width: 0; padding: 17px 12px; border: 1px solid var(--border); background: var(--card); text-align: center; }
 .countdown-unit span { display: block; color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: clamp(25px, 4vw, 43px); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
 .countdown-unit small { display: block; margin-top: 9px; color: var(--muted-foreground); font-family: var(--font-space-mono), monospace; font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
@@ -175,10 +175,11 @@ footer nav a:hover { color: var(--primary); }
   .desktop-nav, .header-socials { display: none; }
   .mobile-menu { display: block; }
   .hero-grid { grid-template-columns: 1fr; gap: 52px; padding-block: 72px; }
+  .countdown-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px; }
   .hero-copy { max-width: 760px; }
   .hero-visual { width: min(100%, 560px); max-width: 560px; justify-self: center; margin-inline: auto; }
   h1 { font-size: clamp(58px, 14vw, 108px); }
-  .countdown-shell { grid-template-columns: 1fr; align-items: stretch; gap: 28px; }
+  .countdown-shell { gap: 28px; }
   .countdown-grid { width: 100%; }
   .case-grid, .sighting-grid { grid-template-columns: 1fr; }
   .lore-card { min-height: 320px; }
