@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { ArrowDown, ArrowUpRight, Check, CircleAlert, LockKeyhole, Radio, ShieldAlert } from 'lucide-react'
 import { DeploymentCountdown } from '@/components/deployment-countdown'
 import { SiteHeader } from '@/components/site-header'
+import { SightingsCaseNavigator } from '@/components/sightings-case-navigator'
 
 const primarySocials = [
   { label: 'X / Twitter', href: 'https://x.com/FROGITIVE' },
@@ -105,21 +106,7 @@ export default function Page() {
         <section id="sightings" className="content-section sightings-section">
           <div className="site-shell">
             <SectionHeading eyebrow="ARCHIVE" title="SIGHTINGS">Every confirmed appearance receives a number. One timeline, across the official FROGITIVE community channels.</SectionHeading>
-            <div className="sighting-grid">
-              <figure className="sighting-image">
-                <Image src="/images/frogitive-2.png" alt="Confirmed FROGITIVE sighting 001 in a dark street captured by surveillance camera" width={1536} height={1536} sizes="(max-width: 900px) 100vw, 58vw" priority />
-                <figcaption>ARCHIVE FOOTAGE // 23.08.2026</figcaption>
-              </figure>
-              <article className="signal-card">
-                <div>
-                  <p className="eyebrow">CONFIRMED SIGHTING</p>
-                  <p className="signal-number">#001</p>
-                  <h3>&ldquo;LAST SEEN: EVERYWHERE.&rdquo;</h3>
-                  <p>First confirmed appearance. Identity still unknown. Subject remains at large.</p>
-                </div>
-                <div className="next-file"><span>Next file</span><strong>SIGHTING #002 — INCOMING</strong></div>
-              </article>
-            </div>
+            <SightingsCaseNavigator />
           </div>
         </section>
 
