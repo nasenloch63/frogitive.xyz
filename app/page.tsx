@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { ArrowDown, ArrowUpRight, Check, CircleAlert, LockKeyhole, Radio, ShieldAlert } from 'lucide-react'
+import { DeploymentCountdown } from '@/components/deployment-countdown'
 import { SiteHeader } from '@/components/site-header'
 
 const primarySocials = [
@@ -51,6 +52,10 @@ export default function Page() {
               <h1>FROGITIVE <span>$FUG</span></h1>
               <p className="hero-lead">THE MOST WANTED FROG ON SOLANA.</p>
               <p className="hero-sub">No name. No trace. No promises. Just a frog on the run — spotted everywhere, caught nowhere.</p>
+              <div className="case-update" aria-label="Case update">
+                <span>CASE UPDATE // 26.08.2026</span>
+                <strong>Confirmed talks with major exchanges regarding listing.</strong>
+              </div>
               <div className="hero-actions">
                 <a className="action action-primary" href="#sightings">View sightings <ArrowDown aria-hidden="true" /></a>
                 {primarySocials.map((social) => <ExternalAction key={social.label} href={social.href}>{social.label}</ExternalAction>)}
@@ -69,6 +74,8 @@ export default function Page() {
             </div>
           </div>
         </section>
+
+        <DeploymentCountdown />
 
         <section id="case" className="content-section">
           <div className="site-shell">
