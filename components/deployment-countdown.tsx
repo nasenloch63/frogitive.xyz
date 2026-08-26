@@ -35,7 +35,7 @@ export function DeploymentCountdown() {
 
   return (
     <section className="countdown-section" aria-labelledby="deployment-countdown-title">
-      <div className="container countdown-shell">
+      <div className="container countdown-shell mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center sm:px-8 lg:px-12">
         <div className="countdown-heading">
           <p className="eyebrow">Operation countdown</p>
           <h2 id="deployment-countdown-title">Contract deployment</h2>
