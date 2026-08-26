@@ -1,0 +1,59 @@
+'use client'
+
+import { useEffect, useState } from 'react'
+
+const deploymentDate = new Date('2026-08-29T00:00:00+02:00')
+
+function getTimeRemaining() {
+  const difference = Math.max(0, deploymentDate.getTime() - Date.now())
+
+  return {
+    difference,
+    days: Math.floor(difference / 86_400_000),
+    hours: Math.floor((difference / 3_600_000) % 24),
+    minutes: Math.floor((difference / 60_000) % 60),
+    seconds: Math.floor((difference / 1_000) % 60),
+  }
+}
+
+export function DeploymentCountdown() {
+  const [remaining, setRemaining] = useState<ReturnType<typeof getTimeRemaining> | null>(null)
+
+  useEffect(() => {
+    const updateCountdown = () => setRemaining(getTimeRemaining())
+    updateCountdown()
+    const interval = window.setInterval(updateCountdown, 1_000)
+    return () => window.clearInterval(interval)
+  }, [])
+
+  const units = [
+    ['Days', remaining?.days],
+    ['Hours', remaining?.hours],
+    ['Minutes', remaining?.minutes],
+    ['Seconds', remaining?.seconds],
+  ] as const
+
+  return (
+    <section className="countdown-section" aria-labelledby="deployment-countdown-title">
+      <div className="container countdown-shell">
+        <div className="countdown-heading">
+          <p className="eyebrow">Operation countdown</p>
+          <h2 id="deployment-countdown-title">Contract deployment</h2>
+          <p>Saturday, August 29, 2026 · 00:00 Europe/Berlin (CEST)</p>
+        </div>
+        {remaining?.difference === 0 ? (
+          <p className="deployed-state" role="status">DEPLOYED</p>
+        ) : (
+          <div className="countdown-grid" role="timer" aria-live="off" aria-atomic="true">
+            {units.map(([label, value]) => (
+              <div className="countdown-unit" key={label}>
+                <span>{value === undefined ? '--' : String(value).padStart(2, '0')}</span>
+                <small>{label}</small>
+              </div>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+  )
+}
