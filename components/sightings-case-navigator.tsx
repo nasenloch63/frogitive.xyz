@@ -14,6 +14,7 @@ type CaseFile = {
   label: string
   title: string
   description: string
+  metadata?: string
   media: CaseMedia | null
   status: 'CONFIRMED' | 'INCOMING' | 'CLASSIFIED'
 }
@@ -38,10 +39,39 @@ const cases: CaseFile[] = [
   {
     id: '003',
     label: 'SIGHTING #003',
-    title: 'CLASSIFIED',
-    description: 'No public details available yet.',
-    media: null,
-    status: 'CLASSIFIED',
+    title: 'FROGITIVE IS WATCHING.',
+    description: `He appeared again.
+
+Nobody knows where he came from.
+Nobody knows what happens next.
+
+All we know is… Frogitive is watching.
+
+Stay ready. Stay tuned.`,
+    metadata: '@FROGITIVE // #FROGITIVE #SIGHTING003 #CRYPTO #MEMECOIN #SOLANA',
+    media: { type: 'video', src: '/videos/003.mp4', label: 'Sighting 003 evidence of Frogitive' },
+    status: 'CONFIRMED',
+  },
+  {
+    id: '004',
+    label: 'SIGHTING #004',
+    title: 'THE SIGNATURE.',
+    description: `They found something different this time.
+
+It wasn’t just about taking cameras offline.
+Someone has been moving through the city using the network’s blind spots.
+
+And now there’s a signature.
+
+A strange frog sticker left directly on the lenses of the broken cameras.
+
+Coincidence?
+Or does someone want us to know they were there?
+
+The pattern is getting harder to ignore.`,
+    metadata: '#FROGITIVE #FUG #SOLANA #CRYPTOMYSTERY #ONTHERUN',
+    media: { type: 'video', src: '/videos/004.mp4', label: 'Sighting 004 evidence showing the Frogitive signature' },
+    status: 'CONFIRMED',
   },
 ]
 
@@ -94,7 +124,8 @@ export function SightingsCaseNavigator() {
                   <p className="eyebrow">{activeCase.label}</p>
                   <p className="signal-number">#{activeCase.id}</p>
                   <h3>&ldquo;{activeCase.title}&rdquo;</h3>
-                  <p>{activeCase.description}</p>
+                  <p className="case-description">{activeCase.description}</p>
+                  {activeCase.metadata && <p className="case-metadata">{activeCase.metadata}</p>}
                 </div>
                 <div className="next-file">
                   <span>{activeCaseIndex === 0 ? 'Next file' : 'Status'}</span>
