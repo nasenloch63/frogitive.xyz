@@ -38,10 +38,18 @@ const cases: CaseFile[] = [
   {
     id: '003',
     label: 'SIGHTING #003',
-    title: 'CLASSIFIED',
-    description: 'No public details available yet.',
+    title: '[INSERT CASE #003 TITLE]',
+    description: '[INSERT CASE #003 DESCRIPTION]',
     media: null,
-    status: 'CLASSIFIED',
+    status: 'CONFIRMED',
+  },
+  {
+    id: '004',
+    label: 'SIGHTING #004',
+    title: '[INSERT CASE #004 TITLE]',
+    description: '[INSERT CASE #004 DESCRIPTION]',
+    media: null,
+    status: 'CONFIRMED',
   },
 ]
 
