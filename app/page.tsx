@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { ArrowDown, ArrowUpRight, Check, CircleAlert, LockKeyhole, Radio, ShieldAlert } from 'lucide-react'
+import { ContractAddress } from '@/components/contract-address'
 import { DeploymentCountdown } from '@/components/deployment-countdown'
 import { SiteHeader } from '@/components/site-header'
 import { SightingsCaseNavigator } from '@/components/sightings-case-navigator'
@@ -57,10 +58,10 @@ export default function Page() {
                 <span>CASE UPDATE // 26.08.2026</span>
                 <strong>Confirmed talks with major exchanges regarding listing.</strong>
               </div>
+              <ContractAddress />
               <div className="hero-actions">
                 <a className="action action-primary" href="#sightings">View sightings <ArrowDown aria-hidden="true" /></a>
                 {primarySocials.map((social) => <ExternalAction key={social.label} href={social.href}>{social.label}</ExternalAction>)}
-                <ExternalAction href="https://join.pump.fun/HSag/hse00kv4" primary>Join on Pump.fun</ExternalAction>
               </div>
               <div className="case-strip" aria-label="Current case details">
                 <span>CASE 001</span><span>CHAIN: SOLANA</span><span>SUBJECT: UNKNOWN</span>
