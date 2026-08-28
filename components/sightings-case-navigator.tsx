@@ -7,7 +7,7 @@ import { useState } from 'react'
 
 type CaseMedia =
   | { type: 'image'; src: string; alt: string; caption?: string }
-  | { type: 'video'; src: string; label: string }
+  | { type: 'video'; src: string; label?: string; alt?: string }
 
 type CaseFile = {
   id: string
@@ -17,6 +17,7 @@ type CaseFile = {
   metadata?: string
   media: CaseMedia | null
   status: 'CONFIRMED' | 'INCOMING' | 'CLASSIFIED'
+  sourceUrl?: string
 }
 
 const cases: CaseFile[] = [
@@ -73,6 +74,19 @@ The pattern is getting harder to ignore.`,
     media: { type: 'video', src: '/videos/004.mp4', label: 'Sighting 004 evidence showing the Frogitive signature' },
     status: 'CONFIRMED',
   },
+  {
+    id: '005',
+    label: 'SIGHTING #005',
+    title: 'NEW EVIDENCE.',
+    description: 'A new confirmed sighting has been added to the archive. Review the official field report.',
+    media: {
+      type: 'video',
+      src: '/videos/005.mp4',
+      alt: 'Sighting 005 evidence from the Frogitive archive',
+    },
+    status: 'CONFIRMED',
+    sourceUrl: 'https://x.com/FROGITIVE/status/2093347473393631730?s=20',
+  },
 ]
 
 export function SightingsCaseNavigator() {
@@ -125,6 +139,11 @@ export function SightingsCaseNavigator() {
                   <p className="signal-number">#{activeCase.id}</p>
                   <h3>&ldquo;{activeCase.title}&rdquo;</h3>
                   <p className="case-description">{activeCase.description}</p>
+                  {activeCase.sourceUrl && (
+                    <a className="case-source-link" href={activeCase.sourceUrl} target="_blank" rel="noopener noreferrer">
+                      VIEW OFFICIAL SIGHTING →
+                    </a>
+                  )}
                   {activeCase.metadata && <p className="case-metadata">{activeCase.metadata}</p>}
                 </div>
                 <div className="next-file">
@@ -151,7 +170,7 @@ function CaseMediaBlock({ media }: { media: CaseMedia }) {
       {media.type === 'image' ? (
         <Image src={media.src} alt={media.alt} width={1536} height={1536} sizes="(max-width: 1100px) 100vw, 58vw" priority />
       ) : (
-        <video src={media.src} aria-label={media.label} controls playsInline preload="metadata" />
+        <video src={media.src} aria-label={media.alt ?? media.label} controls playsInline preload="metadata" />
       )}
       {media.type === 'image' && media.caption && <figcaption>{media.caption}</figcaption>}
     </figure>
