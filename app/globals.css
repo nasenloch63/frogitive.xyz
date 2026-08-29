@@ -80,6 +80,14 @@ h1 span { display: block; margin-top: .28em; color: var(--primary); font-family:
 .case-update { width: min(100%, 560px); display: flex; flex-direction: column; gap: 7px; margin-top: 24px; padding: 13px 15px; border: 1px solid color-mix(in srgb, var(--primary) 44%, var(--border)); background: color-mix(in srgb, var(--primary) 5%, var(--card)); transform: rotate(-.35deg); }
 .case-update span { color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 9px; font-weight: 700; letter-spacing: .13em; }
 .case-update strong { font-family: var(--font-space-mono), monospace; font-size: 11px; line-height: 1.5; text-transform: uppercase; }
+.contract-block { width: min(100%, 600px); margin-top: 24px; padding: 14px; border: 1px solid color-mix(in srgb, var(--primary) 44%, var(--border)); background: color-mix(in srgb, var(--primary) 4%, var(--card)); }
+.contract-label { margin: 0 0 9px; color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 9px; font-weight: 700; letter-spacing: .13em; }
+.contract-row { display: flex; align-items: stretch; min-width: 0; border: 1px solid var(--border); background: var(--background); }
+.contract-row code { min-width: 0; flex: 1; align-self: center; padding: 11px 12px; overflow: hidden; color: var(--foreground); font-family: var(--font-space-mono), monospace; font-size: 11px; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
+.contract-copy { min-width: 92px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border: 0; border-left: 1px solid var(--border); background: var(--card); color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 10px; font-weight: 700; letter-spacing: .06em; cursor: pointer; }
+.contract-copy:hover { background: color-mix(in srgb, var(--primary) 8%, var(--card)); }
+.contract-copy:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
+.contract-buy { width: fit-content; margin-top: 10px; }
 .hero-actions, .community-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .action { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 15px; border: 1px solid var(--border); background: color-mix(in srgb, var(--card) 88%, transparent); font-family: var(--font-space-mono), monospace; font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; transition: border-color .2s ease, color .2s ease, transform .2s ease; }
 .action:hover { transform: translateY(-2px); border-color: var(--primary); color: var(--primary); }
@@ -228,6 +236,12 @@ footer nav a:hover { color: var(--primary); }
   h1 { margin-top: 22px; font-size: clamp(46px, 15vw, 72px); line-height: .84; }
   .hero-lead { margin-top: 28px; }
   .case-update { margin-top: 20px; }
+  .contract-block { margin-top: 20px; padding: 12px; }
+  .contract-copy { min-width: 52px; }
+  .contract-copy span { display: none; }
+  .contract-copy[data-copied="true"] { min-width: 104px; }
+  .contract-copy[data-copied="true"] span { display: inline; }
+  .contract-buy { width: 100%; }
   .hero-actions .action { flex: 1 1 calc(50% - 5px); }
   .case-strip { display: none; }
   .countdown-section { padding-block: 42px; }
