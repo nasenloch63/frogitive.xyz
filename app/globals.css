@@ -77,17 +77,6 @@ h1 { max-width: 100%; margin-top: 24px; font-size: clamp(52px, 7.2vw, 112px); li
 h1 span { display: block; margin-top: .28em; color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: .28em; letter-spacing: .05em; }
 .hero-lead { max-width: 650px; margin: 34px 0 0; font-size: clamp(20px, 2.2vw, 28px); font-weight: 850; line-height: 1.15; }
 .hero-sub { max-width: 600px; margin: 16px 0 0; color: var(--muted-foreground); font-size: 16px; line-height: 1.65; text-wrap: pretty; }
-.case-update { width: min(100%, 560px); display: flex; flex-direction: column; gap: 7px; margin-top: 24px; padding: 13px 15px; border: 1px solid color-mix(in srgb, var(--primary) 44%, var(--border)); background: color-mix(in srgb, var(--primary) 5%, var(--card)); transform: rotate(-.35deg); }
-.case-update span { color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 9px; font-weight: 700; letter-spacing: .13em; }
-.case-update strong { font-family: var(--font-space-mono), monospace; font-size: 11px; line-height: 1.5; text-transform: uppercase; }
-.contract-block { width: min(100%, 600px); margin-top: 24px; padding: 14px; border: 1px solid color-mix(in srgb, var(--primary) 44%, var(--border)); background: color-mix(in srgb, var(--primary) 4%, var(--card)); }
-.contract-label { margin: 0 0 9px; color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 9px; font-weight: 700; letter-spacing: .13em; }
-.contract-row { display: flex; align-items: stretch; min-width: 0; border: 1px solid var(--border); background: var(--background); }
-.contract-row code { min-width: 0; flex: 1; align-self: center; padding: 11px 12px; overflow: hidden; color: var(--foreground); font-family: var(--font-space-mono), monospace; font-size: 11px; line-height: 1.5; text-overflow: ellipsis; white-space: nowrap; }
-.contract-copy { min-width: 92px; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 10px 12px; border: 0; border-left: 1px solid var(--border); background: var(--card); color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: 10px; font-weight: 700; letter-spacing: .06em; cursor: pointer; }
-.contract-copy:hover { background: color-mix(in srgb, var(--primary) 8%, var(--card)); }
-.contract-copy:focus-visible { outline: 2px solid var(--primary); outline-offset: 3px; }
-.contract-buy { width: fit-content; margin-top: 10px; }
 .hero-actions, .community-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
 .action { min-height: 47px; display: inline-flex; align-items: center; justify-content: center; gap: 9px; padding: 12px 15px; border: 1px solid var(--border); background: color-mix(in srgb, var(--card) 88%, transparent); font-family: var(--font-space-mono), monospace; font-size: 11px; font-weight: 700; letter-spacing: .03em; text-transform: uppercase; transition: border-color .2s ease, color .2s ease, transform .2s ease; }
 .action:hover { transform: translateY(-2px); border-color: var(--primary); color: var(--primary); }
@@ -116,6 +105,23 @@ h1 span { display: block; margin-top: .28em; color: var(--primary); font-family:
 .countdown-unit span { display: block; color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: clamp(25px, 4vw, 43px); font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
 .countdown-unit small { display: block; margin-top: 9px; color: var(--muted-foreground); font-family: var(--font-space-mono), monospace; font-size: 8px; font-weight: 700; letter-spacing: .12em; text-transform: uppercase; }
 .deployed-state { min-width: min(100%, 450px); margin: 0; padding: 24px; border: 2px solid var(--primary); color: var(--primary); font-family: var(--font-space-mono), monospace; font-size: clamp(28px, 5vw, 56px); font-weight: 800; letter-spacing: .12em; text-align: center; }
+.countdown-notice { max-width: 620px; margin: 0; color: var(--muted-foreground); font-family: var(--font-space-mono), monospace; font-size: 10px; font-weight: 700; line-height: 1.6; letter-spacing: .08em; }
+
+.community-update-overlay { position: fixed; inset: 0; z-index: 100; overflow: hidden; background: var(--background); animation: briefing-in .35s ease-out both; }
+.community-update-overlay::before { content: ''; position: absolute; inset: 0; pointer-events: none; opacity: .055; background-image: repeating-linear-gradient(0deg, transparent 0 3px, var(--foreground) 3px 4px); }
+.community-update-overlay[data-leaving="true"] { pointer-events: none; animation: briefing-out .24s ease-in both; }
+.community-update-scroll { position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; overflow-y: auto; padding: 32px 20px; }
+.community-update-panel { width: min(760px, 100%); margin-block: auto; padding: clamp(24px, 4vw, 44px); border: 1px solid color-mix(in srgb, var(--foreground) 46%, transparent); background: var(--card); box-shadow: 0 34px 100px #000; }
+.community-update-eyebrow { width: fit-content; margin: 0 0 18px; padding: 7px 9px; border: 1px solid #c94f45; color: #c94f45; font-family: var(--font-space-mono), monospace; font-size: 10px; font-weight: 800; letter-spacing: .12em; }
+.community-update-panel h2 { max-width: 650px; font-size: clamp(35px, 6vw, 64px); line-height: .92; }
+.community-update-body { display: flex; flex-direction: column; gap: 15px; margin-top: 26px; }
+.community-update-body p { margin: 0; color: color-mix(in srgb, var(--foreground) 82%, var(--muted-foreground)); font-size: 14px; line-height: 1.65; }
+.community-update-enter { width: 100%; min-height: 52px; margin-top: 28px; border: 1px solid var(--primary); background: var(--primary); color: var(--primary-foreground); font-family: var(--font-space-mono), monospace; font-size: 12px; font-weight: 800; letter-spacing: .07em; cursor: pointer; transition: background .2s ease, color .2s ease; }
+.community-update-enter:hover { background: var(--background); color: var(--primary); }
+.community-update-enter:focus-visible { outline: 2px solid var(--foreground); outline-offset: 4px; }
+.community-update-date { margin: 14px 0 0; color: var(--muted-foreground); font-family: var(--font-space-mono), monospace; font-size: 9px; line-height: 1.6; letter-spacing: .06em; text-align: center; }
+@keyframes briefing-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes briefing-out { from { opacity: 1; } to { opacity: 0; } }
 
 .content-section { padding-block: 110px; border-bottom: 1px solid color-mix(in srgb, var(--primary) 12%, transparent); }
 .section-heading { display: flex; align-items: flex-end; justify-content: space-between; gap: 45px; margin-bottom: 42px; }
@@ -235,13 +241,6 @@ footer nav a:hover { color: var(--primary); }
   .hero-visual { order: -1; width: min(100%, 520px); margin-inline: auto; }
   h1 { margin-top: 22px; font-size: clamp(46px, 15vw, 72px); line-height: .84; }
   .hero-lead { margin-top: 28px; }
-  .case-update { margin-top: 20px; }
-  .contract-block { margin-top: 20px; padding: 12px; }
-  .contract-copy { min-width: 52px; }
-  .contract-copy span { display: none; }
-  .contract-copy[data-copied="true"] { min-width: 104px; }
-  .contract-copy[data-copied="true"] span { display: inline; }
-  .contract-buy { width: 100%; }
   .hero-actions .action { flex: 1 1 calc(50% - 5px); }
   .case-strip { display: none; }
   .countdown-section { padding-block: 42px; }

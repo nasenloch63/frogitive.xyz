@@ -2,11 +2,11 @@
 
 import { useEffect, useState } from 'react'
 
-// 2026-09-01 00:00 in Europe/Berlin is CEST (UTC+02:00).
-const relaunchDate = new Date('2026-09-01T00:00:00+02:00')
+// Monday, 31 August 2026 at 22:00 in Europe/Berlin (CEST / UTC+02:00).
+const deploymentDate = new Date('2026-08-31T22:00:00+02:00')
 
 function getTimeRemaining() {
-  const difference = Math.max(0, relaunchDate.getTime() - Date.now())
+  const difference = Math.max(0, deploymentDate.getTime() - Date.now())
 
   return {
     difference,
@@ -39,8 +39,8 @@ export function DeploymentCountdown() {
       <div className="container countdown-shell mx-auto flex w-full max-w-6xl flex-col items-center px-5 text-center sm:px-8 lg:px-12">
         <div className="countdown-heading">
           <p className="eyebrow">Operation countdown</p>
-          <h2 id="deployment-countdown-title">RELAUNCH</h2>
-          <p>01.09.2026 // 00:00 CEST</p>
+          <h2 id="deployment-countdown-title">NEW CONTRACT DEPLOYMENT</h2>
+          <p>MONDAY, 31 AUGUST 2026 · 22:00 BERLIN TIME</p>
         </div>
         {remaining?.difference === 0 ? (
           <p className="deployed-state" role="status">FROGITIVE IS LIVE</p>
@@ -54,6 +54,7 @@ export function DeploymentCountdown() {
             ))}
           </div>
         )}
+        <p className="countdown-notice">THE ONE OFFICIAL CONTRACT ADDRESS WILL BE PUBLISHED HERE AT DEPLOYMENT.</p>
       </div>
     </section>
   )
