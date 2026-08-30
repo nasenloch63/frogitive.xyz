@@ -2,8 +2,8 @@
 
 import { useEffect, useState } from 'react'
 
-// Monday, 31 August 2026 at 22:00 in Europe/Berlin (CEST / UTC+02:00).
-const deploymentDate = new Date('2026-08-31T22:00:00+02:00')
+// Tuesday, 1 September 2026 at 22:00 in Europe/Berlin (CEST / UTC+02:00).
+const deploymentDate = new Date('2026-09-01T22:00:00+02:00')
 
 function getTimeRemaining() {
   const difference = Math.max(0, deploymentDate.getTime() - Date.now())
