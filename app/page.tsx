@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import { ArrowDown, ArrowUpRight, Check, CircleAlert, LockKeyhole, Radio, ShieldAlert } from 'lucide-react'
-import { ContractAddress } from '@/components/contract-address'
+import { CommunityUpdateModal } from '@/components/community-update-modal'
 import { DeploymentCountdown } from '@/components/deployment-countdown'
 import { SiteHeader } from '@/components/site-header'
 import { SightingsCaseNavigator } from '@/components/sightings-case-navigator'
@@ -45,6 +45,7 @@ function ExternalAction({ href, children, primary = false }: { href: string; chi
 export default function Page() {
   return (
     <>
+      <CommunityUpdateModal />
       <SiteHeader />
       <main id="top">
         <section className="hero-section">
@@ -54,11 +55,6 @@ export default function Page() {
               <h1>FROGITIVE <span>$FUG</span></h1>
               <p className="hero-lead">THE MOST WANTED FROG ON SOLANA.</p>
               <p className="hero-sub">No name. No trace. No promises. Just a frog on the run — spotted everywhere, caught nowhere.</p>
-              <div className="case-update" aria-label="Case update">
-                <span>CASE UPDATE // 26.08.2026</span>
-                <strong>Confirmed talks with major exchanges regarding listing.</strong>
-              </div>
-              <ContractAddress />
               <div className="hero-actions">
                 <a className="action action-primary" href="#sightings">View sightings <ArrowDown aria-hidden="true" /></a>
                 {primarySocials.map((social) => <ExternalAction key={social.label} href={social.href}>{social.label}</ExternalAction>)}
@@ -145,7 +141,6 @@ export default function Page() {
               <p>Follow the sightings. Share the clues. The subject is still at large.</p>
             </div>
             <div className="community-actions">
-              <ExternalAction href="https://join.pump.fun/HSag/hse00kv4" primary>Join on Pump.fun</ExternalAction>
               {primarySocials.map((social) => <ExternalAction key={social.label} href={social.href}>{social.label}</ExternalAction>)}
             </div>
           </div>
