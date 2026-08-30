@@ -1,9 +1,9 @@
 'use client'
 
 import { useEffect, useState } from 'react'
+import { DEPLOYMENT_DATE, DEPLOYMENT_DATE_LABEL } from '@/lib/deployment'
 
-// Tuesday, 1 September 2026 at 22:00 in Europe/Berlin (CEST / UTC+02:00).
-const deploymentDate = new Date('2026-09-01T22:00:00+02:00')
+const deploymentDate = new Date(DEPLOYMENT_DATE)
 
 function getTimeRemaining() {
   const difference = Math.max(0, deploymentDate.getTime() - Date.now())
@@ -40,7 +40,7 @@ export function DeploymentCountdown() {
         <div className="countdown-heading">
           <p className="eyebrow">Operation countdown</p>
           <h2 id="deployment-countdown-title">NEW CONTRACT DEPLOYMENT</h2>
-          <p>MONDAY, 31 AUGUST 2026 · 22:00 BERLIN TIME</p>
+          <p>{DEPLOYMENT_DATE_LABEL}</p>
         </div>
         {remaining?.difference === 0 ? (
           <p className="deployed-state" role="status">FROGITIVE IS LIVE</p>

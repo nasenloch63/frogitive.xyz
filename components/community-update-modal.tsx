@@ -1,6 +1,7 @@
 'use client'
 
 import { useEffect, useRef, useState } from 'react'
+import { DEPLOYMENT_DATE_LABEL } from '@/lib/deployment'
 
 const STORAGE_KEY = 'frogitive-community-update-seen'
 
@@ -77,7 +78,7 @@ export function CommunityUpdateModal() {
           <button ref={continueButtonRef} type="button" className="community-update-enter" onClick={continueToSite}>
             ENTER THE MANHUNT →
           </button>
-          <p className="community-update-date">NEXT DEPLOYMENT: MONDAY, 31 AUGUST 2026 · 22:00 BERLIN TIME</p>
+          <p className="community-update-date">NEXT DEPLOYMENT: {DEPLOYMENT_DATE_LABEL}</p>
         </article>
       </div>
     </div>
