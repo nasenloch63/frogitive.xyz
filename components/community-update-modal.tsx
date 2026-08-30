@@ -3,14 +3,14 @@
 import { useEffect, useRef, useState } from 'react'
 
 const STORAGE_KEY = 'frogitive-community-update-seen'
-const EXIT_DURATION = 240
 
 export function CommunityUpdateModal() {
   const [isVisible, setIsVisible] = useState(true)
-  const [isLeaving, setIsLeaving] = useState(false)
   const continueButtonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
+    if (!isVisible) return
+
     try {
       if (window.sessionStorage.getItem(STORAGE_KEY) === 'true') {
         setIsVisible(false)
@@ -20,7 +20,8 @@ export function CommunityUpdateModal() {
       // Storage may be unavailable; the briefing remains safely dismissible.
     }
 
-    const previousOverflow = document.body.style.overflow
+    const previousBodyOverflow = document.body.style.overflow
+    const previousHtmlOverflow = document.documentElement.style.overflow
     const keepFocusInDialog = (event: KeyboardEvent) => {
       if (event.key !== 'Tab') return
       event.preventDefault()
@@ -28,24 +29,27 @@ export function CommunityUpdateModal() {
     }
 
     document.body.style.overflow = 'hidden'
+    document.documentElement.style.overflow = 'hidden'
     document.addEventListener('keydown', keepFocusInDialog)
     continueButtonRef.current?.focus({ preventScroll: true })
 
     return () => {
-      document.body.style.overflow = previousOverflow
+      document.body.style.overflow = previousBodyOverflow
+      document.documentElement.style.overflow = previousHtmlOverflow
       document.removeEventListener('keydown', keepFocusInDialog)
     }
-  }, [])
+  }, [isVisible])
 
   function continueToSite() {
+    setIsVisible(false)
+    document.body.style.overflow = ''
+    document.documentElement.style.overflow = ''
+
     try {
       window.sessionStorage.setItem(STORAGE_KEY, 'true')
     } catch {
       // Continue normally when storage is unavailable.
     }
-
-    setIsLeaving(true)
-    window.setTimeout(() => setIsVisible(false), EXIT_DURATION)
   }
 
   if (!isVisible) return null
@@ -53,7 +57,6 @@ export function CommunityUpdateModal() {
   return (
     <div
       className="community-update-overlay"
-      data-leaving={isLeaving}
       role="dialog"
       aria-modal="true"
       aria-labelledby="community-update-title"

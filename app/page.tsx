@@ -55,6 +55,10 @@ export default function Page() {
               <h1>FROGITIVE <span>$FUG</span></h1>
               <p className="hero-lead">THE MOST WANTED FROG ON SOLANA.</p>
               <p className="hero-sub">No name. No trace. No promises. Just a frog on the run — spotted everywhere, caught nowhere.</p>
+              <div className="hero-contract-status" aria-label="Official contract status">
+                <span>OFFICIAL CONTRACT ADDRESS</span>
+                <strong>NOT LIVE YET — DO NOT TRUST RANDOM CONTRACTS</strong>
+              </div>
               <div className="hero-actions">
                 <a className="action action-primary" href="#sightings">View sightings <ArrowDown aria-hidden="true" /></a>
                 {primarySocials.map((social) => <ExternalAction key={social.label} href={social.href}>{social.label}</ExternalAction>)}
