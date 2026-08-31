@@ -10,6 +10,7 @@ const primarySocials = [
   { label: 'Telegram', href: 'https://t.me/frogitiveportal' },
   { label: 'Discord', href: 'https://discord.gg/2HGrg7eZ5M' },
   { label: 'Instagram', href: 'https://www.instagram.com/frogitive/?hl=en' },
+  { label: 'Pump.fun', href: 'https://join.pump.fun/HSag?af_dp=pump%3A%2F%2Fprofile%2F9sTKShmd8mD2dKDxPWwCEgWCwtpBAdLtX6Vf5mzeY81i&af_web_dp=https%3A%2F%2Fpump.fun%2Fprofile%2FFrogitive&af_r=https%3A%2F%2Fpump.fun%2Fprofile%2FFrogitive&af_force_deeplink=true&af_og_title=Frogitive+on+Pump&af_og_description=Coins%2C+livestreams+and+activity+from+Frogitive+on+Pump.fun.&af_og_type=website&pid=web_retail&c=profile_share&share_type=profile_share&content_type=profile' },
 ]
 
 const facts = [
