@@ -54,7 +54,7 @@ export function DeploymentCountdown() {
             ))}
           </div>
         )}
-        <p className="countdown-notice">THE ONE OFFICIAL CONTRACT ADDRESS WILL BE PUBLISHED HERE AT DEPLOYMENT.</p>
+        <p className="countdown-notice">OFFICIAL CONTRACT: 2z6G2uyFE5ft7WwnPFHnATCEfbFLMew3BXTZ97nvpump</p>
       </div>
     </section>
   )
