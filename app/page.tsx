@@ -5,6 +5,8 @@ import { DeploymentCountdown } from '@/components/deployment-countdown'
 import { SiteHeader } from '@/components/site-header'
 import { SightingsCaseNavigator } from '@/components/sightings-case-navigator'
 
+const CONTRACT_ADDRESS = '2z6G2uyFE5ft7WwnPFHnATCEfbFLMew3BXTZ97nvpump'
+
 const primarySocials = [
   { label: 'X / Twitter', href: 'https://x.com/FROGITIVE' },
   { label: 'Telegram', href: 'https://t.me/frogitiveportal' },
@@ -56,9 +58,9 @@ export default function Page() {
               <h1>FROGITIVE <span>$FUG</span></h1>
               <p className="hero-lead">THE MOST WANTED FROG ON SOLANA.</p>
               <p className="hero-sub">No name. No trace. No promises. Just a frog on the run — spotted everywhere, caught nowhere.</p>
-              <div className="hero-contract-status" aria-label="Official contract status">
+              <div className="hero-contract-status" aria-label="Official contract address">
                 <span>OFFICIAL CONTRACT ADDRESS</span>
-                <strong>NOT LIVE YET — DO NOT TRUST RANDOM CONTRACTS</strong>
+                <strong>{CONTRACT_ADDRESS}</strong>
               </div>
               <div className="hero-actions">
                 <a className="action action-primary" href="#sightings">View sightings <ArrowDown aria-hidden="true" /></a>
@@ -114,11 +116,11 @@ export default function Page() {
 
         <section id="token" className="content-section">
           <div className="site-shell">
-            <SectionHeading eyebrow="$FUG" title="TOKEN INFO">The token has not launched yet. The official contract address will only appear here after launch.</SectionHeading>
+            <SectionHeading eyebrow="$FUG" title="TOKEN INFO">$FUG is live. Always verify the official contract address before trading.</SectionHeading>
             <div className="token-panel">
               <ShieldAlert aria-hidden="true" />
-              <div><p>OFFICIAL CONTRACT ADDRESS</p><code>NOT LIVE YET — DO NOT TRUST RANDOM CONTRACTS</code></div>
-              <span>COMING SOON</span>
+              <div><p>OFFICIAL CONTRACT ADDRESS</p><code>{CONTRACT_ADDRESS}</code></div>
+              <span>LIVE</span>
             </div>
           </div>
         </section>
